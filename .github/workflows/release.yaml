@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - dev
 
 jobs:
   build:
@@ -21,8 +22,8 @@ jobs:
         id: version
         uses: mavrosxristoforos/get-xml-info@1.1.1
         with:
-          xml-file: 'pom.xml'
-          xpath: '//revision'
+          xml-file: './pom.xml'
+          xpath: '/projects/revision'
       - name: Release
         uses: ncipollo/release-action@v1
         with:
