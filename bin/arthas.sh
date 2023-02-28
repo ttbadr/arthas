@@ -1,11 +1,11 @@
 #!/bin/bash
 unset -v _JAVA_OPTIONS
-fileName=arthas.tgz
-url1='https://github.com/ttbadr/arthas/releases/download/3.6.7/arthas.tgz'
-url2='http://10.116.53.198/scripts/repo/arthas.tgz'
-cd /tmp
+fileName=arthas-bin.tgz
+url1="https://github.com/ttbadr/arthas/releases/download/3.6.7/$fileName"
+url2="http://10.116.53.198/scripts/repo/$fileName"
 
-if [ ! -d arthas ]; then
+if [ ! -d /tmp/arthas ]; then
+    mkdir /tmp/arthas && cd /tmp/arthas
     echo 'downloading arthas...'
     if command -v curl &>/dev/null; then
         curl -I -m 3 -o /dev/null -s http://10.116.53.198
@@ -24,5 +24,7 @@ if [ ! -d arthas ]; then
     fi
     tar -xf $fileName
     rm -f $fileName
+else
+    cd /tmp/arthas
 fi
-cd arthas && java -jar arthas-boot.jar
+java -jar arthas-boot.jar
