@@ -25,7 +25,7 @@ jobs:
         run: |
           echo "VERSION=$(cat pom.xml | grep -oPm1 '(?<=<revision>)[^<]+')" >> $GITHUB_OUTPUT
       - name: Release
-        uses: ncipollo/release-action@v1
+        uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ steps.pom-version.outputs.VERSION }}
           files: |
