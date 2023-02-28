@@ -20,15 +20,13 @@ jobs:
         run: mvn clean package -P full
       - name: Get version
         id: version
-        uses: mavrosxristoforos/get-xml-info@1.1.1
-        with:
-          xml-file: '../pom.xml'
-          xpath: '/projects/revision'
+        run: |
+          echo "VERSION=$(cat pom.xml | grep -oPm1 '(?<=<revision>)[^<]+')" >> $GITHUB_OUTPUT
       - name: Release
         uses: ncipollo/release-action@v1
         with:
           allowUpdates: true
-          tag: ${{ steps.version.outputs.info }}
+          tag: ${{ steps.version.outputs.VERSION }}
           token: ${{ secrets.GITHUB_TOKEN }}
           artifacts: "packaging/target/*.zip,packaging/target/*.tgz,packaging/target/*.deb,packaging/target/*.rpm,tunnel-server/target/*fatjar.jar,bin/arthas.sh"
 
