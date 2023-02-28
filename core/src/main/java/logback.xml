@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-    <property name="ARTHAS_LOG_PATH" value="${ARTHAS_LOG_PATH:-${user.home}/logs/arthas}" />
-    <property name="ARTHAS_LOG_FILE" value="${ARTHAS_LOG_FILE:-${ARTHAS_LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}}/arthas.log}" />
-
-    <property name="RESULT_LOG_FILE" value="${RESULT_LOG_FILE:-${ARTHAS_LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}}/../arthas-cache/result.log}" />
+    <property name="ARTHAS_LOG_PATH" value="/tmp/arthas/logs" />
+    <property name="ARTHAS_LOG_FILE" value="/tmp/arthas/logs/arthas.log" />
+    <property name="RESULT_LOG_FILE" value="/tmp/arthas/logs/result.log" />
 
     <!-- arthas.log -->
     <appender name="ARTHAS" class="com.alibaba.arthas.deps.ch.qos.logback.core.rolling.RollingFileAppender">

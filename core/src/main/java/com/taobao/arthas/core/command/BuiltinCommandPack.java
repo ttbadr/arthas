@@ -1,5 +1,6 @@
 package com.taobao.arthas.core.command;
 
+import com.taobao.arthas.core.command.monitor200.SqlProfilerCommand;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -105,6 +106,7 @@ public class BuiltinCommandPack implements CommandResolver {
         commandClassList.add(ProfilerCommand.class);
         commandClassList.add(VmToolCommand.class);
         commandClassList.add(StopCommand.class);
+        commandClassList.add(SqlProfilerCommand.class);
         try {
             if (ClassLoader.getSystemClassLoader().getResource("jdk/jfr/Recording.class") != null) {
                 commandClassList.add(JFRCommand.class);
