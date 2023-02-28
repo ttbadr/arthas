@@ -21,10 +21,9 @@ jobs:
         id: pom-version
         uses: CptMokoena/maven-get-version-action@1.0.3
       - name: Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v0.1.15
         with:
-          name: ${{ steps.pom-version.outputs.version }}
-          tag: ${{ steps.pom-version.outputs.version }}
+          tag_name: ${{ steps.pom-version.outputs.version }}
           files: |
             packaging/target/*.zip
             packaging/target/*.tgz
