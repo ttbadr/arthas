@@ -24,6 +24,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           name: ${{ steps.pom-version.outputs.version }}
+          tag: ${{ steps.pom-version.outputs.version }}
           files: |
             packaging/target/*.zip
             packaging/target/*.tgz
