@@ -21,15 +21,10 @@ jobs:
         id: pom-version
         uses: CptMokoena/maven-get-version-action@1.0.3
       - name: Release
-        uses: softprops/action-gh-release@v0.1.15
+        uses: ncipollo/release-action@v1
         with:
-          tag_name: ${{ steps.pom-version.outputs.version }}
-          files: |
-            packaging/target/*.zip
-            packaging/target/*.tgz
-            packaging/target/*.deb
-            packaging/target/*.rpm
-            tunnel-server/target/*fatjar.jar
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          allowUpdates: true
+          tag: ${{ steps.pom-version.outputs.version }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          artifacts: "packaging/target/*.zip,packaging/target/*.tgz,packaging/target/*.deb,packaging/target/*.rpm,tunnel-server/target/*fatjar.jar"
 
