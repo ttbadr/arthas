@@ -27,7 +27,7 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ steps.pom-version.outputs.VERSION }}
+          tag_name: ${{ steps.version.outputs.VERSION }}
           files: |
             bin/arthas.sh
             packaging/target/*.zip
