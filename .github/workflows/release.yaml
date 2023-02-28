@@ -22,12 +22,12 @@ jobs:
         uses: mavrosxristoforos/get-xml-info@1.1.1
         with:
           xml-file: 'pom.xml'
-          xpath: '/properties/revision'
+          xpath: '//revision'
       - name: Release
         uses: ncipollo/release-action@v1
         with:
           allowUpdates: true
           tag: ${{ steps.version.outputs.info }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          artifacts: "packaging/target/*.zip,packaging/target/*.tgz,packaging/target/*.deb,packaging/target/*.rpm,tunnel-server/target/*fatjar.jar"
+          artifacts: "packaging/target/*.zip,packaging/target/*.tgz,packaging/target/*.deb,packaging/target/*.rpm,tunnel-server/target/*fatjar.jar,bin/arthas.sh"
 
