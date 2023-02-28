@@ -22,7 +22,7 @@ jobs:
         uses: mavrosxristoforos/get-xml-info@1.1.1
         with:
           xml-file: 'pom.xml'
-          xpath: '/project/properties/revision'
+          xpath: '/properties/revision'
       - name: Release
         uses: ncipollo/release-action@v1
         with:
