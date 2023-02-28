@@ -17,14 +17,17 @@ jobs:
           distribution: 'adopt'
       - name: Build with Maven
         run: mvn clean package -P full
-      - name: Get POM version
-        id: pom-version
-        uses: CptMokoena/maven-get-version-action@1.0.3
+      - name: Get version
+        id: version
+        uses: mavrosxristoforos/get-xml-info@1.1.1
+        with:
+          xml-file: 'pom.xml'
+          xpath: '/project/properties/revision'
       - name: Release
         uses: ncipollo/release-action@v1
         with:
           allowUpdates: true
-          tag: ${{ steps.pom-version.outputs.version }}
+          tag: ${{ steps.version.outputs.info }}
           token: ${{ secrets.GITHUB_TOKEN }}
           artifacts: "packaging/target/*.zip,packaging/target/*.tgz,packaging/target/*.deb,packaging/target/*.rpm,tunnel-server/target/*fatjar.jar"
 
