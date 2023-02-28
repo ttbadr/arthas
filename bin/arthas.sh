@@ -1,7 +1,7 @@
 #!/bin/bash
 unset -v _JAVA_OPTIONS
 fileName=arthas.tgz
-url1='https://github.com/ttbadr/arthas/releases/download/latest/arthas.tgz'
+url1='https://github.com/ttbadr/arthas/releases/download/3.6.7/arthas.tgz'
 url2='http://10.116.53.198/scripts/repo/arthas.tgz'
 cd /tmp
 
