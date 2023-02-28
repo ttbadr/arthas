@@ -17,13 +17,16 @@ jobs:
           distribution: 'adopt'
       - name: Build with Maven
         run: mvn clean package -P full
-
+      - name: Get POM version
+        id: pom-version
+        uses: CptMokoena/maven-get-version-action@1.0.3
       - name: Release
         uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
         with:
+          name: ${{ steps.pom-version.outputs.version }}
           files: |
             packaging/target/*.zip
+            packaging/target/*.tgz
             packaging/target/*.deb
             packaging/target/*.rpm
             tunnel-server/target/*fatjar.jar
