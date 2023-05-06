@@ -6,6 +6,7 @@
   <formats>
     <format>dir</format>
     <format>zip</format>
+    <format>tgz</format>
   </formats>
 
   <files>

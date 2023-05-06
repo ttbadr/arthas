@@ -57,7 +57,7 @@ public class ArthasBanner {
             }
 
             StringBuilder sb = new StringBuilder();
-            String[] LOGOS = new String[6];
+            String[] LOGOS = new String[7];
             int i = 0, j = 0;
             for (String line : logoText.split("\n")) {
                 sb.append(line);
@@ -70,12 +70,15 @@ public class ArthasBanner {
             }
 
             TableElement logoTable = new TableElement();
-            logoTable.row(label(LOGOS[0]).style(Decoration.bold.fg(Color.red)),
-                    label(LOGOS[1]).style(Decoration.bold.fg(Color.yellow)),
-                    label(LOGOS[2]).style(Decoration.bold.fg(Color.cyan)),
-                    label(LOGOS[3]).style(Decoration.bold.fg(Color.magenta)),
-                    label(LOGOS[4]).style(Decoration.bold.fg(Color.green)),
-                    label(LOGOS[5]).style(Decoration.bold.fg(Color.blue)));
+            logoTable.row(
+                label(LOGOS[0]).style(Decoration.bold.fg(Color.red)),
+                label(LOGOS[1]).style(Decoration.bold.fg(Color.yellow)),
+                label(LOGOS[2]).style(Decoration.bold.fg(Color.cyan)),
+                label(LOGOS[3]).style(Decoration.bold.fg(Color.magenta)),
+                label(LOGOS[4]).style(Decoration.bold.fg(Color.green)),
+                label(LOGOS[5]).style(Decoration.bold.fg(Color.blue)),
+                label(LOGOS[6]).style(Decoration.bold.fg(Color.yellow))
+            );
             LOGO = RenderUtil.render(logoTable);
         } catch (Throwable e) {
             e.printStackTrace();

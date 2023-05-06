@@ -164,4 +164,9 @@ public class ArthasMethod {
         this.methodName = methodName;
         this.methodDesc = methodDesc;
     }
+
+    public Method getTargetMethod() {
+        initMethod();
+        return method;
+    }
 }
