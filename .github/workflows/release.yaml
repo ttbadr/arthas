@@ -3,7 +3,7 @@ name: release
 on:
   push:
     branches:
-      - master
+      - toby
 
 jobs:
   build:
@@ -28,5 +28,5 @@ jobs:
           allowUpdates: true
           tag: ${{ steps.version.outputs.VERSION }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          artifacts: "bin/arthas.sh,packaging/target/*.zip,packaging/target/*.tgz,packaging/target/*.deb,packaging/target/*.rpm,tunnel-server/target/*fatjar.jar"
+          artifacts: "packaging/target/*.zip,packaging/target/*.tgz,packaging/target/*.deb,packaging/target/*.rpm,tunnel-server/target/*fatjar.jar"
 

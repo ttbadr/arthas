@@ -2,6 +2,7 @@ package com.taobao.arthas.core.util;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 /**
  * @author diecui1202 on 2017/10/25.
@@ -20,5 +21,9 @@ public final class DateUtils {
 
     public static String formatDateTime(LocalDateTime dateTime) {
         return DATE_TIME_FORMATTER.format(dateTime);
+    }
+
+    public static String formatDate(Date date) {
+        return DATE_TIME_FORMATTER.format(date.toInstant());
     }
 }
