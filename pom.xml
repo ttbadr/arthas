@@ -75,11 +75,16 @@
         <module>testcase</module>
         <module>site</module>
         <module>packaging</module>
-        <module>arthas-grpc-web-proxy</module>
+        <module>labs/arthas-grpc-web-proxy</module>
+        <module>labs/cluster-management/native-agent</module>
+        <module>labs/cluster-management/native-agent-management-web</module>
+        <module>labs/cluster-management/native-agent-proxy</module>
+        <module>labs/cluster-management/native-agent-common</module>
+        <module>labs/arthas-grpc-server</module>
     </modules>
 
     <properties>
-        <revision>4.0.0-SNAPSHOT</revision>
+        <revision>4.0.5</revision>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -88,7 +93,7 @@
         <maven-invoker-plugin.version>3.0.0</maven-invoker-plugin.version>
         <project.build.outputTimestamp>2020-09-27T15:10:43Z</project.build.outputTimestamp>
         <lifecycle-mapping.version>1.0.0</lifecycle-mapping.version>
-        <netty.version>4.1.112.Final</netty.version>
+        <netty.version>4.1.119.Final</netty.version>
     </properties>
 
     <dependencyManagement>
@@ -96,7 +101,7 @@
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>bytekit-core</artifactId>
-                <version>0.0.9</version>
+                <version>0.1.4</version>
             </dependency>
             <dependency>
                 <groupId>org.benf</groupId>
@@ -106,7 +111,7 @@
             <dependency>
                 <groupId>com.alibaba.middleware</groupId>
                 <artifactId>termd-core</artifactId>
-                <version>1.1.7.13</version>
+                <version>1.1.7.14</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba.middleware</groupId>
@@ -131,12 +136,12 @@
             <dependency>
                 <groupId>com.alibaba.arthas</groupId>
                 <artifactId>arthas-repackage-logger</artifactId>
-                <version>0.0.16</version>
+                <version>0.0.17</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>repackage-asm</artifactId>
-                <version>0.0.16</version>
+                <version>0.0.17</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba.fastjson2</groupId>
@@ -156,7 +161,7 @@
             <dependency>
                 <groupId>ognl</groupId>
                 <artifactId>ognl</artifactId>
-                <version>3.4.2</version>
+                <version>3.3.5</version>
             </dependency>
             <dependency>
                 <groupId>org.junit</groupId>

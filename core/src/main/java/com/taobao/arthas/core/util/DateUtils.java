@@ -1,6 +1,10 @@
 package com.taobao.arthas.core.util;
 
+import java.lang.management.ManagementFactory;
+import java.lang.management.RuntimeMXBean;
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
@@ -25,5 +29,17 @@ public final class DateUtils {
 
     public static String formatDate(Date date) {
         return DATE_TIME_FORMATTER.format(date.toInstant());
+    }
+    
+    public static String getStartDateTime() {
+        try {
+            RuntimeMXBean runtimeMXBean = ManagementFactory.getRuntimeMXBean();
+            long startTime = runtimeMXBean.getStartTime();
+            Instant startInstant = Instant.ofEpochMilli(startTime);
+            LocalDateTime startDateTime = LocalDateTime.ofInstant(startInstant, ZoneId.systemDefault());
+            return DATE_TIME_FORMATTER.format(startDateTime);
+        } catch (Throwable e) {
+            return "unknown";
+        }
     }
 }
